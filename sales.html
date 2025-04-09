@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Truck - Sweet Deals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .deal-card {
+            background: linear-gradient(135deg, #55C4CB 0%, #CB3686 100%);
+            transition: all 0.3s ease;
+        }
+        .deal-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 px-4">
+        <h1 class="text-4xl font-bold text-[#55C4CB] mb-8 text-center">Sweet Deals</h1>
+        
+        <!-- Current Promotions -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-[#CB3686] mb-6">Current Promotions</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Deal 1 -->
+                <div class="deal-card rounded-xl p-6 text-white">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-white text-[#CB3686] px-3 py-1 rounded-full text-sm font-bold">HOT DEAL</span>
+                        <span class="text-xl font-bold">$3.99</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Double Scoop Special</h3>
+                    <p class="mb-4">Two generous scoops of your favorite flavor for the price of one!</p>
+                    <button class="bg-white text-[#CB3686] font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition">
+                        Claim This Deal
+                    </button>
+                </div>
+
+                <!-- Deal 2 -->
+                <div class="deal-card rounded-xl p-6 text-white">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-white text-[#CB3686] px-3 py-1 rounded-full text-sm font-bold">NEW</span>
+                        <span class="text-xl font-bold">FREE</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Kids Eat Free</h3>
+                    <p class="mb-4">Every Wednesday from 3-5pm, kids under 12 get a free small cone!</p>
+                    <button class="bg-white text-[#CB3686] font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition">
+                        Claim This Deal
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonal Offers -->
+        <section>
+            <h2 class="text-2xl font-bold text-[#CB3686] mb-6">Summer Specials</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Offer 1 -->
+                <div class="bg-white border border-[#55C4CB] rounded-lg p-6 hover:shadow-md transition">
+                    <div class="text-[#CB3686] font-bold mb-2">July Only</div>
+                    <h3 class="text-xl font-bold text-[#55C4CB] mb-2">Tropical Flavors</h3>
+                    <p class="text-gray-600 mb-4">20% off all tropical flavors: mango, coconut, and passionfruit</p>
+                    <button class="text-[#CB3686] font-semibold hover:underline">Learn More →</button>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="bg-white border border-[#55C4CB] rounded-lg p-6 hover:shadow-md transition">
+                    <div class="text-[#CB3686] font-bold mb-2">Weekends</div>
+                    <h3 class="text-xl font-bold text-[#55C4CB] mb-2">Family Bundle</h3>
+                    <p class="text-gray-600 mb-4">4 cones + 1 sundae for just $15 (regularly $22)</p>
+                    <button class="text-[#CB3686] font-semibold hover:underline">Learn More →</button>
+                </div>
+
+                <!-- Offer 3 -->
+                <div class="bg-white border border-[#55C4CB] rounded-lg p-6 hover:shadow-md transition">
+                    <div class="text-[#CB3686] font-bold mb-2">All Summer</div>
+                    <h3 class="text-xl font-bold text-[#55C4CB] mb-2">Loyalty Rewards</h3>
+                    <p class="text-gray-600 mb-4">Get a free cone after 10 purchases with our loyalty card</p>
+                    <button class="text-[#CB3686] font-semibold hover:underline">Learn More →</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+        
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
