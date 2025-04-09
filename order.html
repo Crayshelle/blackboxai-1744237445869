@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Ice Cream - Sweet Treats on Wheels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="order-hero flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-[#55C4CB] opacity-70"></div>
+        <div class="text-center relative z-10 px-4">
+            <h1 class="text-5xl font-bold text-white mb-4">Order Your Treats</h1>
+            <p class="text-xl text-white mb-8">Get delicious ice cream delivered or book our truck for your event!</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Individual Orders -->
+            <section class="bg-white shadow-lg rounded-lg p-6">
+                <h2 class="text-3xl font-bold text-[#55C4CB] mb-6">Single Orders</h2>
+                
+                <form id="individual-order"></form>
+                    <div class="mb-4">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Flavor *</label>
+                        <select class="form-input w-full p-3 rounded" required>
+                            <option value="">Select a flavor</option>
+                            <option>Vanilla</option>
+                            <option>Chocolate</option>
+                            <option>Strawberry</option>
+                            <option>Mint Chip</option>
+                            <option>Cookies & Cream</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Size *</label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="size" value="small" class="mr-2" required>
+                                <span>Small ($3.99)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="size" value="medium" class="mr-2">
+                                <span>Medium ($4.99)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="size" value="large" class="mr-2">
+                                <span>Large ($5.99)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Quantity *</label>
+                        <input type="number" min="1" max="10" value="1" 
+                               class="form-input w-20 p-2 text-center rounded" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-3 px-6 rounded-lg">
+                        <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                    </button>
+                </form>
+            </section>
+
+            <!-- Catering Orders -->
+            <section class="bg-white shadow-lg rounded-lg p-6">
+                <h2 class="text-3xl font-bold text-[#55C4CB] mb-6">Catering & Events</h2>
+                
+                <form id="catering-order">
+                    <div class="mb-4">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Event Date *</label>
+                        <input type="date" class="form-input w-full p-3 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Location *</label>
+                        <input type="text" placeholder="Where should we park?" 
+                               class="form-input w-full p-3 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Estimated Guests *</label>
+                        <select class="form-input w-full p-3 rounded" required>
+                            <option value="">Select guest count</option>
+                            <option>1-25</option>
+                            <option>26-50</option>
+                            <option>51-100</option>
+                            <option>100+</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-[#55C4CB] font-medium mb-2">Special Requests</label>
+                        <textarea class="form-input w-full p-3 rounded" rows="3"
+                                  placeholder="Dietary restrictions, theme, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-3 px-6 rounded-lg">
+                        <i class="fas fa-calendar-check mr-2"></i> Book Now
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+        
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
+        // Form submission handlers
+        document.getElementById('individual-order').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Added to cart! We will contact you at 507-400-9234 to confirm delivery details.');
+        });
+
+        document.getElementById('catering-order').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Catering request received! We will contact you at 507-400-9234 within 24 hours.');
+        });
+    </script>
+</body>
+</html>
